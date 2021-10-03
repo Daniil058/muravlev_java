@@ -1,13 +1,21 @@
 package org.example.CreationalPatterns;
 
-import org.example.CreationalPatterns.singletone.Singletone;
+import org.example.CreationalPatterns.factorymethod.factory.LeftTwixFactory;
+import org.example.CreationalPatterns.factorymethod.factory.RightTwixFactory;
+import org.example.CreationalPatterns.factorymethod.factory.TwixFactory;
+import org.example.CreationalPatterns.factorymethod.product.TwixStick;
 
 public class Application {
     public static void main(String[] args){
-        Singletone conncet1 = Singletone.getConnections();
-        System.out.println(conncet1);
-        Singletone connect2 = Singletone.getConnections();
-        System.out.println(connect2);
+        TwixFactory[] twixFactories = {
+                new LeftTwixFactory(),
+                new RightTwixFactory(),
+                new LeftTwixFactory()
+                };
+        for(TwixFactory twixFactory: twixFactories){
+            TwixStick twixStick = twixFactory.factoryMethod();
+            System.out.println("Произведена: " + twixStick.GetName());
+        }
     }
 }
 

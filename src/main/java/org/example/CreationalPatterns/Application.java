@@ -1,21 +1,21 @@
 package org.example.CreationalPatterns;
 
-import org.example.CreationalPatterns.factorymethod.factory.LeftTwixFactory;
-import org.example.CreationalPatterns.factorymethod.factory.RightTwixFactory;
-import org.example.CreationalPatterns.factorymethod.factory.TwixFactory;
-import org.example.CreationalPatterns.factorymethod.product.TwixStick;
+import org.example.CreationalPatterns.abstractfactory.Client;
+import org.example.CreationalPatterns.abstractfactory.shop.Ashan;
+import org.example.CreationalPatterns.abstractfactory.shop.Magnit;
 
 public class Application {
     public static void main(String[] args){
-        TwixFactory[] twixFactories = {
-                new LeftTwixFactory(),
-                new RightTwixFactory(),
-                new LeftTwixFactory()
-                };
-        for(TwixFactory twixFactory: twixFactories){
-            TwixStick twixStick = twixFactory.factoryMethod();
-            System.out.println("Произведена: " + twixStick.GetName());
-        }
+        Client[] client = {new Client(new Ashan()), new Client(new Magnit())};
+
+        client[0].BuyChocolateStick();
+
+        client[1].BuyLemonade();
+        client[1].BuyChocolateStick();
+
+        System.out.println("Клиент 1:\n" + client[0].GetBuying());
+
+        System.out.println("Клиент 2:\n" + client[1].GetBuying());
     }
 }
 

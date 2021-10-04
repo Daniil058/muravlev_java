@@ -1,21 +1,24 @@
 package org.example.CreationalPatterns;
 
-import org.example.CreationalPatterns.abstractfactory.Client;
-import org.example.CreationalPatterns.abstractfactory.shop.Ashan;
-import org.example.CreationalPatterns.abstractfactory.shop.Magnit;
+import org.example.CreationalPatterns.builder.Builder;
+import org.example.CreationalPatterns.builder.Constructors.Constructor;
+import org.example.CreationalPatterns.builder.Constructors.ConstructorA;
+import org.example.CreationalPatterns.builder.Constructors.ConstructorB;
+import org.example.CreationalPatterns.builder.House;
 
 public class Application {
     public static void main(String[] args){
-        Client[] client = {new Client(new Ashan()), new Client(new Magnit())};
+        Builder builder = new Builder();
+        Constructor constructorA = new ConstructorA();;
+        House house1 = builder.Build(constructorA);
 
-        client[0].BuyChocolateStick();
+        System.out.println(house1.toString());
 
-        client[1].BuyLemonade();
-        client[1].BuyChocolateStick();
 
-        System.out.println("Клиент 1:\n" + client[0].GetBuying());
+        Constructor constructorB = new ConstructorB();;
+        House house2 = builder.Build(constructorB);
 
-        System.out.println("Клиент 2:\n" + client[1].GetBuying());
+        System.out.println(house2.toString());
     }
 }
 

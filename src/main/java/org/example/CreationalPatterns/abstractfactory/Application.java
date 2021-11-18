@@ -1,20 +1,14 @@
 package org.example.CreationalPatterns.abstractfactory;
 
-import org.example.CreationalPatterns.abstractfactory.shop.Ashan;
-import org.example.CreationalPatterns.abstractfactory.shop.Magnit;
 
 public class Application {
-    public static void main(String[] args){
-        Client[] client = {new Client(new Ashan()), new Client(new Magnit())};
+    public static void main(String[] args) throws Exception {
+        AbstractFabricService abstractFabricService = new AbstractFabricService();
+        Client client1 = abstractFabricService.initClient("ашан");
+        System.out.println( client1.GetName());
 
-        client[0].BuyChocolateStick();
-
-        client[1].BuyLemonade();
-        client[1].BuyChocolateStick();
-
-        System.out.println("Клиент 1:\n" + client[0].GetBuying());
-
-        System.out.println("Клиент 2:\n" + client[1].GetBuying());
+        Client client2 = abstractFabricService.initClient("магнит");
+        System.out.println( client2.GetName());
     }
 }
 

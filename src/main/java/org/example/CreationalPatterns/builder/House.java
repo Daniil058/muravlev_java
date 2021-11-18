@@ -38,14 +38,13 @@ public class House {
     }
     @Override
     public String toString(){
-        String out = "\n----------------\n";
+        String out = "";
         if(Door != null)
             out += "Тип дверей у дома: "+this.getDoor();
         if(Window!= null)
-            out += "\n Количество окон у дома: "+this.getWindow();
+            out += "\nКоличество окон у дома: "+this.getWindow();
         if(Facade!= null)
-            out += "\n Цвет фасада дома: "+this.getFacade();
-        out += "\n----------------\n";
+            out += "\nЦвет фасада дома: "+this.getFacade();
         return out;
     }
 }

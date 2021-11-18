@@ -28,6 +28,9 @@ public class Client {
     public String GetNameLemonade(){
         return this.lemonade.GetName();
     }
+    public String GetName(){
+        return "Клиент из магазина "+shop.GetName();
+    }
     public String GetBuying() {
         String outBuying = "Ваши покупки в магазине "+shop.GetName()+" :\n";
         if (chocolateStick != null)

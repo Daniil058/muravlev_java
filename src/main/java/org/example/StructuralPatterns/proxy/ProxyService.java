@@ -5,7 +5,7 @@ import org.example.StructuralPatterns.proxy.youtubeapi.CacheProxyYouTubeApiClien
 import org.example.StructuralPatterns.proxy.youtubeapi.ThirdPartyYouTubeApiClient;
 
 public class ProxyService {
-    public void exec(String typeDownloader) throws Exception {
+    public YouTubeVideoDownloader exec(String typeDownloader) throws Exception {
         YouTubeVideoDownloader downloader;
         switch (typeDownloader.toUpperCase()){
             case ("ОБЫЧНЫЙ"):
@@ -18,12 +18,12 @@ public class ProxyService {
                 throw new Exception("Данный тип загрузчика не найден.");
         }
         call(downloader);
+        return downloader;
     }
 
     private void call(YouTubeVideoDownloader downloader) {
         downloader.renderPopularVideos();
         downloader.renderVideoPage("catzzzzzzzzz");
         downloader.renderVideoPage("catzzzzzzzzz");
-
     }
 }

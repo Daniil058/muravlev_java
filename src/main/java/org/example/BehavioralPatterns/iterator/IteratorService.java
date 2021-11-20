@@ -6,11 +6,11 @@ import org.example.BehavioralPatterns.iterator.iter.Iterator;
 public class IteratorService {
     public String exec(int[] nums){
         NumsContainer numsAggregator = new NumsContainer();
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
         Iterator iterator = numsAggregator.getIterator(nums);
         while (iterator.hasNext()){
-            answer+=iterator.next()+", ";
+            answer.append(iterator.next()).append(" ");
         }
-        return answer;
+        return answer.toString();
     }
 }

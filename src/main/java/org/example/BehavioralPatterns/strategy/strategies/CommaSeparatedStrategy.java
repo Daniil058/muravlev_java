@@ -4,7 +4,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-
+/**
+ * Класс разделителей ','
+ */
 public class CommaSeparatedStrategy implements Strategy {
     @NotNull
     @Override

@@ -5,6 +5,9 @@ import org.jetbrains.annotations.NotNull;
 import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 
+/**
+ * Класс разделителей ';'
+ */
 public class SemicolonSeparatedStrategy implements Strategy {
     @NotNull
     @Override

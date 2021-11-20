@@ -8,18 +8,22 @@ import org.example.StructuralPatterns.bridge.remotes.BasicRemote;
 
 public class BridgeService{
 
-        public void exec(String strDevice) throws Exception {
+        public Device exec(String strDevice) throws Exception {
+            Device device;
             switch (strDevice.toUpperCase()){
                 case ("ТВ"):
-                    testDevice(new Tv());
+                    device = new Tv();
+                    testDevice(device);
                     break;
                 case ("РАДИО"):
-                    testDevice(new Radio());
+                    device = new Radio();
+                    testDevice(device);
                     break;
                 default:
                     System.out.println(strDevice.toUpperCase());
                     throw new Exception("Такого устройства не найдено.");
             }
+            return device;
         }
 
         private void testDevice(Device device) {

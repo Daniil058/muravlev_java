@@ -11,6 +11,10 @@ public class YouTubeVideoDownloader {
         this.apiClient = apiClient;
     }
 
+    public YouTubeApiClient getApiClient() {
+        return apiClient;
+    }
+
     public void renderVideoPage(String videoId) {
         Video video = apiClient.getVideo(videoId);
         System.out.println("\n-------------------------------");
